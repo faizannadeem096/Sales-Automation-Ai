@@ -23,11 +23,7 @@ OpenAI: GPT-based content generation.
 Flask: API backend.
 Chroma: Vector store for efficient retrieval.
 Setup and Installation
-Clone this repository:
-bash
-Copy code
-git clone https://github.com/yourusername/sales-automation.git
-cd sales-automation
+
 
 Install required dependencies:
 bash
