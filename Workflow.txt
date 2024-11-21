@@ -1,0 +1,48 @@
+Working.txt (Detailed Explanation for Workflow)
+
+Project Title: Automated Sales Analysis and Content Generation
+
+Overview:
+This project automates the analysis of sales data using a combination of vectorization, GPT-based content generation, and retrieval techniques. It processes CSV sales data into vectorized embeddings and allows for natural language queries about the data, providing insights and analysis via a RESTful API.
+
+Workflow:
+
+1. Data Loading and Preparation:
+Sales data is loaded from a CSV file using CSVLoader.
+The data is chunked into smaller pieces using RecursiveCharacterTextSplitter for efficient embedding generation.
+
+2. Vectorization:
+Text chunks are converted into vectorized embeddings using the HuggingFace embedding model.
+These embeddings are stored in a Chroma vector store for later retrieval.
+
+3. Content Retrieval:
+The stored embeddings allow similarity-based retrieval of data when queried.
+Chroma vector store acts as a retriever to fetch relevant chunks of information.
+
+4. Content Generation:
+ GPT-based models (gpt-3.5-turbo and gpt-3.5-turbo-instruct) generate natural language insights based on the queried data.
+
+5. REST API:
+ Flask serves as the backend framework.
+Exposed endpoints:
+/api/rep_performance: Analyze the performance of a specific sales representative.
+/api/team_performance: Summarize overall team performance.
+/api/performance_trends: Analyze trends and provide forecasts based on specified time periods.
+Query processing integrates LLMs and retrieved embeddings for precise results.
+
+6. Usage:
+Users interact via the API by providing parameters such as rep_id or time_period.
+Responses include detailed analyses, trends, and forecasts in JSON format.
+
+Modules and Technologies:
+Data Processing: LangChain's document loaders, text splitter, and Chroma vector stores.
+Machine Learning: HuggingFace embeddings and OpenAI GPT models for vectorization and generation.
+Backend: Flask for API endpoints.
+Environment: Python with .env configuration for secure token management.
+
+Flow Summary:
+Load and chunk sales data.
+Convert text into vector embeddings.
+Persist embeddings in Chroma.
+Use an LLM to process user queries and generate insights.
+Serve insights via Flask API endpoints.
